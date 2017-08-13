@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Bitter|Orbitron|Righteous|Exo|Mogra|Tangerine|Acme|OpenSans');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
+$pColor: white;
+$pFont: Acme, serif;
+
+* {box-sizing: border-box;}
+a {text-decoration: none; color: white;}
+i {color: white;}
+body {background-color: #515A5A;}
+svg {display: block; margin: 0 auto; background-color: white; }
+.axis path, .axis line {fill: none; stroke: black; shape-rendering: crispEdges;}
+.axis text {font-family: sans-serif; font-size: 14px;}
+div.tooltip {margin: 0 auto; position: relative; text-align: center; width: 210px; padding: 5px; font-family: $pFont; font-size: 20px; background-color: lightsteelblue;	border: 2px solid black; border-radius: 8px; box-shadow: 5px 5px 5px #888888;}
+
+.footer {position: fixed; bottom: 5px; width: 100%; height: auto; margin-top: 40px; text-align: center; font-family: $pFont;  font-size: 1vw;}
