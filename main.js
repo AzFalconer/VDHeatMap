@@ -47,7 +47,7 @@ $(document).ready(function() {
       let yScale = d3.scaleLinear()
         .domain([1, 12]).range([margin.top, h - margin.bottom - margin.top]); //margin.bottom + margin.top, h - margin.bottom - margin.top
       //Title
-      let chartTitle = canvas.append("text").html("Temperature Heat Map in &deg;" + tempUnit).attr("x", w/2).attr("y", 40).attr("text-anchor", "middle").attr("font-size", 36).attr("class", "chartTitle");
+      let chartTitle = canvas.append("text").html("Monthly Global Land-Surface Temperature in &deg;" + tempUnit).attr("x", w/2).attr("y", 40).attr("text-anchor", "middle").attr("font-size", 36).attr("class", "chartTitle");
       let chartSubTitle = canvas.append("text").text("(1753 - 2015)").attr("x", w/2).attr("y", 75).attr("text-anchor", "middle").attr("font-size", 28).attr("class", "chartTitle");
       //Create Axis
       let xAxis = d3.axisBottom(xScale)
@@ -83,7 +83,7 @@ $(document).ready(function() {
           if (tempUnit == "F") {bT = convertTemp(baseTemp); vari = d.variance*1.8};
           div.transition().duration(200).style("opacity", .9);
           div.html(months[d.month-1] + ", " + d.year + "<br>" + (bT + vari).toFixed(3) + "&deg;" + tempUnit + " (" + (vari).toFixed(3) + "&deg;" + tempUnit + ")" )
-            .style("right", "+450px").style("top", "-835px");
+            .style("right", "+550px").style("top", "-835px");
         })
         .on("mouseout", function(d) {div.transition().duration(500).style("opacity", 0);});
         //Create Color Bar legend
@@ -103,6 +103,9 @@ $(document).ready(function() {
         canvas.append("text").text("C / F").attr("x", w-margin.right-84).attr("y", 58).attr("text-anchor", "middle").attr("font-size", 22)
           .on("mouseover", function(d) {d3.select(this).style("cursor", "pointer");d3.select("#btn").attr("fill", "grey");})
           .on("click", function() {if(tempUnit == "C") {tempUnit = "F"} else {tempUnit = "C"}; makeChart(data);});
+        //Add source citation
+        canvas.append("text").html("Data provided by FreeCodeCamp, no source cited.").attr("x", 1400).attr("y", 835).attr("text-anchor", "middle").attr("font-size", 12).attr("fill", "blue");
+
 
   } //Closes makeChart
 
