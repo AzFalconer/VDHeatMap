@@ -53,8 +53,12 @@ $(document).ready(function() {
       let xAxis = d3.axisBottom(xScale)
         .ticks(10) //Set # of ticks
       let yAxis = d3.axisLeft(yScale)
-        .tickFormat(function(d,i) {return months[i]}) //Use "Jan, Feb, etc.." instad of generated ticks
-        //.ticks(10) //Set # of ticks
+        //  .tickFormat(function(d,i) {return months[i]}) //Use "Jan, Feb, etc.." instad of generated ticks
+        .tickFormat('') //Remove lables, will add .text elements to build own labels
+        for (i=0;i<months.length;i++) {
+          canvas.append("text").text(function(){return months[i]})
+            .attr("x", 40).attr("y", 120+(i*55)).attr("text-anchor", "middle").attr("font-size", 22);
+        }
       canvas.append("g") //Create group for xAxis
        .attr("class", "axis") //Assigns "axis" class so we can use CSS to format
        .attr("transform", "translate(0," + (h - margin.bottom -17) + ")")
